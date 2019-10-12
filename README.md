@@ -8,11 +8,12 @@ Term: Fall 2019
 
 + Team ##
 + Team members
-	+ team member 1
-	+ team member 2
-	+ team member 3
-	+ team member 4
-	+ team member 5
+	+ Thomson Batidzirai
+	+ Feichi Gu
+	+ Chang Qu
+	+ Young Sim
+	+ Mo Yang
+	
 
 + Project summary: In this project, we created a classification engine for facial emotion recognition. 
 	
