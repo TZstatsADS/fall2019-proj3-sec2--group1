@@ -31,12 +31,13 @@ Term: Fall 2019
 	
 + Young Sim  
                
-	+ Train and test MLPClassifier Neural Network model (using Python) based on PCA, HOG, RGB and the features we choose by ourselves (pick the best parameter of Neural Network model, test using cross validation) 
+	+ Write script for feature extraction and training for CNN using Python
+	+ Build baseline model
 	+ Generate main.Rmd 
 	
 	
 + Chang Qu  
-  + Train and test SVM (linear and non-linear) model based on PCA, HOG, RGB and the features we choose by ourselves (pick the best parameter of SVM model, test using cross validation)       
+  + Train and test SVM (linear) and random froest model based on PCA, HOG, and the features we choose by ourselves (pick the best parameter of SVM model, test using cross validation)       
 	
 	
 + Thomson Batidzirai  
