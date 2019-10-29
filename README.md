@@ -31,9 +31,9 @@ Term: Fall 2019
 	
 + Young Sim  
                
-	+ Write script for feature extraction and training for CNN using Python
-	+ Build baseline model
-	+ Generate main.Rmd 
+	+ Write scripts for feature extraction and training/testing for CNN using Python
+	+ Build and train/test baseline model
+	+ Write main.ipynb
 	
 	
 + Chang Qu  
