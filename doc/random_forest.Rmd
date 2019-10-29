@@ -1,0 +1,206 @@
+---
+title: "random_forest"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1. Using extractedpca
+### Load the data and split test train dataset
+
+```{r}
+load("./output/extractedpca.RData")
+
+# split the test, train dataset
+train_idx <- sample(1:2500, 2000)
+train_pca <- data.frame(pca_thre)[train_idx,]
+test_idx <- setdiff(1:2500, train_idx)
+test_pca<- data.frame(pca_thre)[test_idx,]
+
+# rename the label column
+names(train_pca)[31] <- "y"
+names(test_pca)[31] <- "y"
+
+# factorize label column
+train_pca$y <- factor(train_pca$y)
+test_pca$y <- factor(test_pca$y)
+
+# rescale the data due to large variation
+scale_num <- max(train_pca[,1:ncol(train_pca)-1])
+
+train_pca[,1:30] <- train_pca[,1:30]/scale_num
+test_pca[,1:30] <- test_pca[,1:30]/scale_num
+
+train_pca[,"y"]
+```
+
+### Tune the parameter n
+
+```{r, eval=FALSE}
+# use cv to choose the optimal C
+source("./lib/cross_val_random_forest.R")
+
+## set the n list
+n = c(5, 10, 15, 20, 25)
+err_cv_pca_rf <- matrix(0, nrow = length(n))
+for(i in 1:length(n)){
+  cat("n=", n[i], "\n")
+  err_cv_pca_rf[i,] <- cv_random_forest.function(dat_train = train_pca, K=5, n[i])
+}
+```
+
+### Train the model and evaluate on test dataset
+
+```{r}
+# choose the best perfomed parameter
+para_best_pca_rf <- n[which.min(err_cv_pca_rf)]
+
+# use the whole train data to retrain the model using selected parameter
+model_best_pca_rf <- randomForest::randomForest(train_pca[,-1], train_pca[,"y"],
+                                                xtest = test_pca[,-1], ytest = test_pca[,"y"],
+                                                ntree = para_best_pca_rf)
+print(model_best_pca_rf)
+```
+
+
+### Evaluate model on test dataset
+
+```{r}
+pred_pca_rf <- model_best_pca_rf$test$predicted
+
+# calculate accuracy
+accu_pca_rf <- mean(test_pca$y == pred_pca_rf)
+cat("The accuracy of model on PCA feature:", "is", accu_pca_rf*100, "%.\n")
+
+model_best_pca_rf$test$confusion
+```
+
+
+## 2. Using HOG 
+### Load the data and split test train dataset
+
+```{r}
+load("./output/HOG.RData")
+
+# split the test, train dataset
+train_hog <- data.frame(dat)[train_idx,]
+test_hog<- data.frame(dat)[test_idx,]
+
+# rename the label column
+names(train_hog)[55] <- "y"
+names(test_hog)[55] <- "y"
+
+# factorize label column
+train_hog$y <- factor(train_hog$y)
+test_hog$y <- factor(test_hog$y)
+
+```
+
+### Tune the parameter n
+
+```{r, eval=FALSE}
+
+err_cv_hog_rf <- matrix(0, nrow = length(n))
+for(i in 1:length(n)){
+  cat("n=", n[i], "\n")
+  err_cv_hog_rf[i,] <- cv_random_forest.function(dat_train = train_hog, K=5, n[i])
+}
+```
+
+### Train the model and evaluate on test dataset
+
+```{r}
+# choose the best perfomed parameter
+para_best_hog_rf <- n[which.min(err_cv_hog_rf)]
+
+# use the whole train data to retrain the model using selected parameter
+model_best_hog_rf <- randomForest::randomForest(train_hog[,-1], train_hog[,"y"],
+                                                xtest = test_hog[,-1], ytest = test_hog[,"y"],
+                                                ntree = para_best_hog_rf)
+print(model_best_hog_rf)
+```
+
+
+### Evaluate model on test dataset
+
+```{r}
+pred_hog_rf <- model_best_hog_rf$test$predicted
+
+# calculate accuracy
+accu_hog_rf <- mean(test_hog$y == pred_hog_rf)
+cat("The accuracy of model on HOG feature:", "is", accu_hog_rf*100, "%.\n")
+
+model_best_hog_rf$test$confusion
+```
+
+## 3. Using myfeature1
+### Load the data and split test train dataset
+
+```{r}
+load("./output/myfeature1.RData")
+
+# split the test, train dataset
+train_f1 <- data.frame(mydat)[train_idx,]
+test_f1<- data.frame(mydat)[test_idx,]
+
+# rename the label column
+names(train_f1)[507] <- "y"
+names(test_f1)[507] <- "y"
+
+# factorize label column
+train_f1$y <- factor(train_f1$y)
+test_f1$y <- factor(test_f1$y)
+```
+
+### Tune the parameter n
+
+```{r, eval=FALSE}
+
+err_cv_f1_rf <- matrix(0, nrow = length(n))
+for(i in 1:length(n)){
+  cat("n=", n[i], "\n")
+  err_cv_f1_rf[i,] <- cv_random_forest.function(dat_train = train_f1, K=5, n[i])
+}
+```
+
+### Train the model and evaluate on test dataset
+
+```{r}
+# choose the best perfomed parameter
+para_best_f1_rf <- n[which.min(err_cv_f1_rf)]
+
+# use the whole train data to retrain the model using selected parameter
+model_best_f1_rf <- randomForest::randomForest(train_f1[,-1], train_f1[,"y"],
+                                                xtest = test_f1[,-1], ytest = test_f1[,"y"],
+                                                ntree = para_best_f1_rf)
+print(model_best_f1_rf)
+```
+
+### Evaluate model on test dataset
+
+```{r}
+pred_f1_rf <- model_best_f1_rf$test$predicted
+
+# calculate accuracy
+accu_f1_rf <- mean(test_f1$y == pred_f1_rf)
+cat("The accuracy of model on selected feature:", "is", accu_f1_rf*100, "%.\n")
+
+model_best_f1_rf$test$confusion
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
