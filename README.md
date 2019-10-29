@@ -5,7 +5,7 @@
 
 Term: Fall 2019
 
-+ Team ##
++ Team 1
 + Team members
 	+ 1 Thomson Batidzirai
 	+ 2 Feichi Gu
@@ -19,9 +19,9 @@ Term: Fall 2019
 **Contribution statement**: 
 + Feichi Gu
    
-	+ Data processing, include data splitting and cleaning 
+	+ Data processing: include data splitting and cleaning 
 	+ Build the HOG and PCA function and Extract HOG and PCA features (pick the best parameter of HOG and PCA)
-	+ Choose 23 points to calculat the distance between them, build our own features 
+	+ Choose 23 points and 5 groups of points to calculate the distance between them, and build our own dataset1 and dataset2
 	
 + Mo Yang          
                 
@@ -31,18 +31,17 @@ Term: Fall 2019
 	
 + Young Sim  
                
-	+ Train and test SVM (linear and non-linear) model based on PCA, HOG, RGB and the features we choose by ourselves (pick the best parameter of SVM model, test using cross validation) 
+	+ Train and test MLPClassifier Neural Network model (using Python) based on PCA, HOG, RGB and the features we choose by ourselves (pick the best parameter of Neural Network model, test using cross validation) 
 	+ Generate main.Rmd 
 	
 	
 + Chang Qu  
-        
-	+ Train and test MLPClassifier Neural Network model (using Python)based on SIFT, HOG, RGB and HSV  
-	(pick the best parameter of Neural Network model, test using cross validation) 
+  + Train and test SVM (linear and non-linear) model based on PCA, HOG, RGB and the features we choose by ourselves (pick the best parameter of SVM model, test using cross validation)       
+	
 	
 + Thomson Batidzirai  
         
-    + Train and test gradient XGboosting  model based on PCA, HOG, RGB and Features we choose by ourselves.
+    + Train and test XGboosting model based on PCA, HOG, RGB and Features we choose by ourselves.
     + Make the PPT and give the presentation
 
 
