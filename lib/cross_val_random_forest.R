@@ -5,7 +5,7 @@
 ### Author: Chang Qu
 ### Project 3
 
-cv_random_forest.function <- function(dat_train, K, n){
+cv_random_forest.function <- function(dat_train, K, n, nodesize){
   ### Input:
   ### - train data frame
   ### - K: a number stands for K-fold CV
@@ -24,7 +24,7 @@ cv_random_forest.function <- function(dat_train, K, n){
     #par <- list(sigma = sigma)
     random_forest <- randomForest::randomForest(train.data[,-1], train.data[,"y"],
                                                 xtest = test.data[,-1], ytest = test.data[,"y"],
-                                                ntree = n)
+                                                ntree = n, nodesize = nodesize)
     
     
     pred <- random_forest$test$predicted

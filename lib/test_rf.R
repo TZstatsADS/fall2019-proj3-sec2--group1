@@ -15,11 +15,12 @@ test_rf <- function(train_dat, test_dat, par = NULL){
     n = 10
   } else {
     n = par$n
+    nodesize = par$nodesize
   }
   
   rf_model <- randomForest::randomForest(train_dat[,-1], train_dat[,"y"],
                                           xtest = test_dat[,-1], ytest = test_dat[,"y"],
-                                          ntree = n)
+                                          ntree = n, nodesize = nodesize)
   
   return(model = rf_model)
 }
