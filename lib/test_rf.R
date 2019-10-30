@@ -1,8 +1,8 @@
 ###########################################################
-### Test a classification model with training features ###
+### Test a classification model with testing features ###
 ###########################################################
 test_rf <- function(train_dat, test_dat, par = NULL){
-  ### Test an Random Forest model using processed features from training images
+  ### Test an Random Forest model using processed features from testing images
   
   ### Input:
   ### - a data frame containing features and labels
@@ -19,8 +19,8 @@ test_rf <- function(train_dat, test_dat, par = NULL){
   }
   
   rf_model <- randomForest::randomForest(train_dat[,-1], train_dat[,"y"],
-                                          xtest = test_dat[,-1], ytest = test_dat[,"y"],
-                                          ntree = n, nodesize = nodesize)
-  
-  return(model = rf_model)
+                                         xtest = test_dat[,-1], ytest = test_dat[,"y"],
+                                         ntree = n, nodesize = nodesize)
+  pred <- rf_model$test$predicted
+  return(pred = pred)
 }

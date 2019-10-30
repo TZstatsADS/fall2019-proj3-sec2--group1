@@ -64,8 +64,8 @@ for(i in 1:N){
 ```{r}
 # choose the best perfomed parameter
 
-n_best_pca_rf2 <- param$n[which(err_cv_pca_rf2 == max(err_cv_pca_rf2), arr.ind = TRUE)[2,1]]
-nodesize_best_pca_rf2 <- param$nodesize[which(err_cv_pca_rf2 == max(err_cv_pca_rf2), arr.ind = TRUE)[2,2]]
+n_best_pca_rf2 <- param$n[which(err_cv_pca_rf2 == min(err_cv_pca_rf2), arr.ind = TRUE)[2,1]]
+nodesize_best_pca_rf2 <- param$nodesize[which(err_cv_pca_rf2 == min(err_cv_pca_rf2), arr.ind = TRUE)[2,2]]
 
 # use the whole train data to retrain the model using selected parameter
 model_best_pca_rf2 <- randomForest::randomForest(train_pca[,-1], train_pca[,"y"],
@@ -242,13 +242,14 @@ for(i in 1:N){
 ```{r}
 # choose the best perfomed parameter
 
-n_best_f2_rf <- param$n[which(err_cv_f2_rf == max(err_cv_f2_rf), arr.ind = TRUE)[5,1]]
-nodesize_best_f2_rf <- param$nodesize[which(err_cv_f2_rf == max(err_cv_f2_rf), arr.ind = TRUE)[5,2]]
+n_best_f2_rf <- param$n[which(err_cv_f2_rf == min(err_cv_f2_rf), arr.ind = TRUE)[5,1]]
+nodesize_best_f2_rf <- param$nodesize[which(err_cv_f2_rf == min(err_cv_f2_rf), arr.ind = TRUE)[5,2]]
 
 # use the whole train data to retrain the model using selected parameter
 model_best_f2_rf <- randomForest::randomForest(train_f2[,-1], train_f2[,"y"],
                                                 xtest = test_f2[,-1], ytest = test_f2[,"y"],
                                                 ntree = n_best_f2_rf, nodesize = nodesize_best_f2_rf)
+print(model_best_f2_rf)
 ```
 
 ### Evaluate model on test dataset
