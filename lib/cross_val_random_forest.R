@@ -22,8 +22,8 @@ cv_random_forest.function <- function(dat_train, K, n, nodesize){
     test.data <- dat_train[s == i,]
     
     #par <- list(sigma = sigma)
-    random_forest <- randomForest::randomForest(train.data[,-1], train.data[,"y"],
-                                                xtest = test.data[,-1], ytest = test.data[,"y"],
+    random_forest <- randomForest::randomForest(train.data[,-ncol(train.data)], train.data[,"y"],
+                                                xtest = test.data[,-ncol(test.data)], ytest = test.data[,"y"],
                                                 ntree = n, nodesize = nodesize)
     
     
