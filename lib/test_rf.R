@@ -1,8 +1,9 @@
 ###########################################################
-### Test a classification model with testing features ###
+### Test a classification model with training features ###
 ###########################################################
-test_rf <- function(train_dat, test_dat, par = NULL){
-  ### Test an Random Forest model using processed features from testing images
+
+test_rf <- function(train_idx, test_idx, data, par = NULL){
+  ### Test an Random Forest model using processed features from training images
   
   ### Input:
   ### - a data frame containing features and labels
@@ -10,18 +11,22 @@ test_rf <- function(train_dat, test_dat, par = NULL){
   ### Output: trained model
   
   
-  ### Train and Test with Random Forest
+  ### Train with SVM
+  train_idx<-unlist(train_idx)
+  test_idx<-unlist(test_idx)
+  train_dat<-data[train_idx,]
+  test_dat<-data[test_idx,]
   if(is.null(par)){
     n = 10
-    nodesize = 4
   } else {
     n = par$n
     nodesize = par$nodesize
   }
   
-  rf_model <- randomForest::randomForest(train_dat[,-ncol(train_dat)], train_dat[,"y"],
-                                         xtest = test_dat[,-ncol(test_dat)], ytest = test_dat[,"y"],
-                                         ntree = n, nodesize = nodesize)
-  pred <- rf_model$test$predicted
-  return(pred = pred)
+  rf_model <- randomForest::randomForest(train_dat[,-(ncol(train_dat))], train_dat[,ncol(train_dat)],
+                                          xtest = test_dat[,-ncol(test_dat)], ytest = test_dat[,ncol(test_dat)],
+                                          ntree = n)
+  
+  return(rf_model$test$predicted)
+  #return(model = rf_model)
 }

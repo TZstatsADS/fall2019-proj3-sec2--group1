@@ -2,12 +2,12 @@
 ### Construct features and responses for training images  ###
 #############################################################
 
-feature <- function(input_list = fiducial_pt_list, index){
+feature <- function(input_list = fiducial_pt_list, index, info){
   
   ### Construct process features for training images 
   
   ### Input: a list of images or fiducial points; index: train index or test index
-
+  
   ### Output: a data frame containing: features and a column of label
   
   ### here is an example of extracting pairwise distances between fiducial points
@@ -24,6 +24,7 @@ feature <- function(input_list = fiducial_pt_list, index){
   }
   
   ### Step 3: Apply function in Step 2 to selected index of input list, output: a feature matrix with ncol = n(n-1) = 78*77 = 6006
+  index <- unlist(index)
   pairwise_dist_feature <- t(sapply(input_list[index], pairwise_dist_result))
   dim(pairwise_dist_feature) 
   
@@ -35,7 +36,7 @@ feature <- function(input_list = fiducial_pt_list, index){
   ### convert matrix to data frame
   pairwise_data <- as.data.frame(pairwise_data)
   ### convert label column to factor
-  pairwise_data$emotion_idx <- as.factor(pairwise_data$emotion_idx)
+  #pairwise_data$emotion_idx <- as.factor(pairwise_data$emotion_idx)
   
   return(feature_df = pairwise_data)
 }

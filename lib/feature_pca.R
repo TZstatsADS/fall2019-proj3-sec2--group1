@@ -4,7 +4,7 @@
 ##cumulate.upper.bound = 0.9
 ##info = read.csv("../data/train_set/label.csv")
 
-feature_pca = function(fpdat, cumulate.upper.bound = 0.9){
+feature_pca = function(fpdat,info, cumulate.upper.bound = 0.9){
   feature.pca = prcomp(as.data.frame(fpdat), center = TRUE, scale = TRUE)
   summary.pca = summary(feature.pca)
   sd.pca <- summary.pca$sdev
@@ -17,7 +17,7 @@ feature_pca = function(fpdat, cumulate.upper.bound = 0.9){
   pca_thre = cbind(pca_thre,info$emotion_idx)
   pca_thre = as.data.frame(pca_thre)
   
-  save(pca_thre, file = paste("../output/extractedpca.RData"))
+  #save(pca_thre, file = paste("../output/extractedpca.RData"))
   
   
   
