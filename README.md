@@ -14,18 +14,19 @@ Term: Fall 2019
 	+ 5 Mo Yang
 	
 
-+ Project summary: In this project, we created a classification engine for facial emotion recognition. 
++ Project summary: 
+In this project, we created a classification engine for facial emotion recognition. Firstly, we identify the necessary features including, the original features, extract HOG, PCA, and RGB (we don't use this one in the end) features, and Choose 23 points (MyFeature1) and 5 groups of points (MyFeatures2) to calculate the distance between them. Then, we choose five algorithms to build the model. The algorithm we used is including six models, they are GBM(baseline model), XGBoost, SVM Linear, Random Forest, AdaBoost, and LGBM. By comparing the accuracy and the computational time between each combination, we got our final model.
 	
 **Contribution statement**: 
 + Feichi Gu
    
 	+ Data processing: include data splitting and cleaning 
 	+ Build the HOG and PCA function and Extract HOG and PCA features (pick the best parameter of HOG and PCA)
-	+ Choose 23 points and 5 groups of points to calculate the distance between them, and build our own dataset1 and dataset2
+	+ Choose 23 points and 5 groups of points to calculate the distance between them, and build our dataset1 and dataset2
 	
 + Mo Yang          
                 
-	+ Conduct image exploration before extracting new features, and Review those previous researches in this area.
+	+ Conduct image exploration before extracting new features and Review those previous researches in this area.
 	+ Build the RGB function and Extract RGB features
 	+ Generate README.Rmd 
 	
