@@ -32,7 +32,7 @@ In this project, we created a classification engine for facial emotion recogniti
 	+ Build the RGB function and Extract RGB features in R
 	+ Generate README.Rmd 
 	
-+ Young Sim  
++ Young Sim  （Project Leader)
                
 	+ Build and train/test baseline model in Python
 	+ Build and train/test voting classifier model in Python
