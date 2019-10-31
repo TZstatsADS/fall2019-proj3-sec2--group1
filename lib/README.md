@@ -6,6 +6,7 @@ The lib directory contains various files with function definitions and code.
 
 Scripts needed to run main.ipynb are the following:
 
++ feature.R
 + myfeature2.R
 + train_baseline.ipynb
 + test_baseline.ipynb
