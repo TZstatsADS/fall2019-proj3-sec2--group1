@@ -34,9 +34,10 @@ In this project, we created a classification engine for facial emotion recogniti
 	
 + Young Sim  
                
-	+ Write scripts for feature extraction and training/testing for CNN using Python
 	+ Build and train/test baseline model
+	+ Build and train/test voting classifier model
 	+ Write main.ipynb
+	+ Write scripts for feature extraction and training/testing for CNN
 	
 	
 + Chang Qu  
