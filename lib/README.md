@@ -12,3 +12,7 @@ Scripts needed to run main.ipynb are the following:
 + test_baseline.ipynb
 + train_voting.ipynb
 + test_voting.ipynb
+
+To run main--prediction.ipynb for prediction, the following were included.
++ test_baseline_2.ipyny was used instead of test_baseline.ipynb
++ test_voting_2.ipyny was used instead of test_voting.ipynb
