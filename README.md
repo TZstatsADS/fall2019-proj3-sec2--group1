@@ -23,31 +23,30 @@ In this project, we created a classification engine for facial emotion recogniti
 + Feichi Gu
    
 	+ Data processing: include data splitting and cleaning 
-	+ Build the HOG and PCA function and Extract HOG and PCA features (pick the best parameter of HOG and PCA)
+	+ Build the HOG and PCA function and Extract HOG and PCA features (pick the best parameter of HOG and PCA) in R
 	+ Choose 23 points and 5 groups of points to calculate the distance between them, and build our dataset1 and dataset2
 	
 + Mo Yang          
                 
 	+ Conduct image exploration before extracting new features and Review those previous researches in this area.
-	+ Build the RGB function and Extract RGB features
+	+ Build the RGB function and Extract RGB features in R
 	+ Generate README.Rmd 
 	
 + Young Sim  
                
-	+ Build and train/test baseline model
-	+ Build and train/test voting classifier model
+	+ Build and train/test baseline model in Python
+	+ Build and train/test voting classifier model in Python
 	+ Write main.ipynb
-	+ Write scripts for feature extraction and training/testing for CNN
+	+ Write scripts for feature extraction and training/testing for CNN in Python
 	
 	
 + Chang Qu  
-  + Train and test SVM (linear) and random froest model based on PCA, HOG, and the features we choose by ourselves (pick the best parameter of SVM model, test using cross validation)       
-  + Train and test Random Forest model in R
+  + Train and test SVM (linear) and random froest model based on PCA, HOG, and the features we choose by ourselves (pick the best parameter of SVM model, test using cross validation) in R
 	
 	
 + Thomson Batidzirai  
         
-    + Train and test XGboosting model based on PCA, HOG, RGB and Features we choose by ourselves.
+    + Train and test XGboosting model based on PCA, HOG, RGB and Features we choose by ourselves in R
     + Make the PPT and give the presentation
 
 
