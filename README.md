@@ -42,6 +42,7 @@ In this project, we created a classification engine for facial emotion recogniti
 	
 + Chang Qu  
   + Train and test SVM (linear) and random froest model based on PCA, HOG, and the features we choose by ourselves (pick the best parameter of SVM model, test using cross validation)       
+  + Train and test Random Forest model in R
 	
 	
 + Thomson Batidzirai  
