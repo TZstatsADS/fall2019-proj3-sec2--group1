@@ -4,4 +4,10 @@
 
 The lib directory contains various files with function definitions and code.
 
-myfeature2.R, train_baseline.ipynb, test_baseline.ipynb, train_voting.ipynb, test_voting.ipynb are needed to run main.ipynb
+Scripts needed to run main.ipynb are the following:
+
++ myfeature2.R
++ train_baseline.ipynb
++ test_baseline.ipynb
++ train_voting.ipynb
++ test_voting.ipynb
