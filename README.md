@@ -15,7 +15,7 @@ Term: Fall 2019
 	
 
 + Project summary: 
-In this project, we created a classification engine for facial emotion recognition. Firstly, we identified the necessary features including, the original features, extract HOG, PCA, and RGB (we don't use this one in the end) features, and Choose 23 points (MyFeature1) and 5 groups of points (MyFeatures2) to calculate the distance between them. Then, we chose six algorithms to build the model, and they are GBM(baseline model), XGBoost, SVM Linear, Random Forest, AdaBoost, and LGBM. By comparing the accuracy and the computational time between each combination, we got our final model.
+In this project, we created a classification engine for facial emotion recognition. Firstly, we identified the necessary features including, the original features, extract HOG, PCA, and RGB (we don't use this one in the end) features, and Choose 23 points (MyFeature1) and 5 groups of points (MyFeatures2) to calculate the distance between them. Then, we built and tested models such as boosted decision stump(baseline model), XGBoost, linear SVM, Random Forest, LGBM, Logistic Regression, CNN, etc. By comparing the accuracy and the computational time between each combination, we got our final model.
 
 ![image](figs/compare.jpeg)
 	
