@@ -20,6 +20,18 @@ In this project, we created a classification engine for facial emotion recogniti
 ![image](figs/compare.jpeg)
 	
 **Contribution statement**: 
++ Young Sim (Project Leader)
+               
+	+ Build and train/test baseline model in Python
+	+ Build and train/test voting classifier model in Python
+	+ Write main.ipynb
+	+ Write scripts for feature extraction and training/testing for CNN in Python
+	
++ Thomson Batidzirai  
+        
+    + Train and test XGboosting model based on PCA, HOG, RGB and Features we choose by ourselves in R
+    + Make the PPT and give the presentation
+	
 + Feichi Gu
    
 	+ Data processing: include data splitting and cleaning 
@@ -32,22 +44,9 @@ In this project, we created a classification engine for facial emotion recogniti
 	+ Build the RGB function and Extract RGB features in R
 	+ Generate README.Rmd 
 	
-+ Young Sim (Project Leader)
-               
-	+ Build and train/test baseline model in Python
-	+ Build and train/test voting classifier model in Python
-	+ Write main.ipynb
-	+ Write scripts for feature extraction and training/testing for CNN in Python
-	
 	
 + Chang Qu  
   + Train and test SVM (linear) and random froest model based on PCA, HOG, and the features we choose by ourselves (pick the best parameter of SVM model, test using cross validation) in R
-	
-	
-+ Thomson Batidzirai  
-        
-    + Train and test XGboosting model based on PCA, HOG, RGB and Features we choose by ourselves in R
-    + Make the PPT and give the presentation
 
 
 Following [suggestions](http://nicercode.github.io/blog/2013-04-05-projects/) by [RICH FITZJOHN](http://nicercode.github.io/about/#Team) (@richfitz). This folder is orgarnized as follows.
